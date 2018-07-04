@@ -16,6 +16,14 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.CustomerId)
+        
+        <div class="form-group ">
+            @Html.LabelFor(model => model.PIN, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.PIN)
+                @Html.ValidationMessageFor(model => model.PIN)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Surname, new { @class = "control-label col-md-2" })
@@ -73,14 +81,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PIN, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PIN)
-                @Html.ValidationMessageFor(model => model.PIN)
-            </div>
-        </div>
-
+        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
