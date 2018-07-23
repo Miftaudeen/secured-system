@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.Success = false;
 }
 
 <h2>Customers</h2>
@@ -15,7 +16,7 @@
     <p> Find by Name: @Html.TextBox("searchString") <input type="submit" class="btn-sm btn-primary" value="Search Customer Name" /></p>
 }
 
-<table class="table">
+<table class="table" >
     <tr>
         <th>
             @Html.ActionLink("Surname", "Index", new { sortOrder = ViewBag.SurnameSortParm })
@@ -24,58 +25,166 @@
             @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.FirstNameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Occupation)
+            Security Question
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NextOfKin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccountNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIN)
-        </th>
+
         <th></th>
     </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.SecurityQuestion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId }) |
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Occupation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NextOfKin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccountNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PIN)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
-        </td>
-    </tr>
-}
+            </td>
+        </tr>
+    }
 
 </table>
+
+<!-- Central Modal Medium Success-->
+<!--Success Modal-->
+<div class="modal fade" id="successful" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" id="header" style="background-color: #428bca">
+                <p class="heading lead" id="message">Transaction Successful</p>
+
+                <button type="button" class="close" style="top:0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+
+                <p id="body">
+                    The Flight ticket has been booked successfully<br />
+                    
+
+                </p>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+
+                <a type="button" href="" class="btn waves-effect btn-danger" data-dismiss="modal">Thanks</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
+<!--Success Modal-->
+<div class="modal fade" id="ask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header" style="background-color: #428bca">
+                <p class="heading lead"> Security Question</p>
+
+                <button type="button" class="close" style="top:0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            
+            <!--Body-->
+            <div class="modal-body">
+
+                <p id="securityText"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" maxlength="3"  name="PassNumber" id="passkey" class="form-control">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <p id="test"></p>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <button type="button" data-toggle="modal" id="myBut" data-target="#successful" onclick="verifyPin()" class="btn btn-primary">
+                    Verify
+                </button>
+                <!--
+                    <a type="button" href="" id="myBut" class="btn waves-effect btn-danger" onclick="verifyPin()" data-target="successful" >Verify</a>
+                -->
+            </div>
+        </div>
+
+        <!--/.Content-->
+    </div>
+</div>
+
+        
+<script type="text/javascript">
+    var userPin, userID, first, second, third;
+    function askQuestion(parm, cusID) {
+        first = Math.floor((Math.random() * 7) + 1);
+        second = Math.floor((Math.random(first) * 7) + 1);
+        third = Math.floor((Math.random(second) * 7) + 1);
+        var text = 'What is the ' + first + posit(first) + ', ' + second + posit(second) + ' and ' + third + posit(third) + ' number of your security code?';
+        document.getElementById('securityTex').innerText = parm + "\n" + text;
+        userPin = formatNumber(parm);
+        userID = cusID;
+
+    }
+    function formatNumber(numb) {
+        var r = "" + numb;
+        while (r.length < 7) {
+            r = "0" + r;
+        }
+        return r;
+    }
+    function posit(num) {
+        switch (num) {
+            case 1: return 'st';
+                break;
+            case 2: return 'nd';
+                break;
+            case 3: return 'rd';
+                break;
+            default: return 'th';
+
+
+
+        }
+    }
+    function verifyPin() {
+        var supplied = document.getElementById('passkey').value;
+
+        if (supplied == (userPin.charAt(first - 1) + "" + userPin.charAt(second - 1) + "" + userPin.charAt(third - 1))) {
+
+            document.getElementById('myBut').setAttribute('data-dismiss', 'modal');
+            window.location.href = "@Url.Action("Details", "Account", new { id = "@:userID" })"
+        } else {
+
+            document.getElementById("header").style.backgroundColor = "red";
+            document.getElementById("message").innerText = "Invalid Entries!";
+            document.getElementById("body").innerText = "The number supplied is not correct: " + supplied + "\n"
+                + userPin.charAt(first - 1) + "" + userPin.charAt(second - 1) + "" + userPin.charAt(third - 1);
+        }
+
+    }
+</script>

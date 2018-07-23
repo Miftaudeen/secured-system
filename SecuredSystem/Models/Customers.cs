@@ -24,5 +24,6 @@ namespace SecuredSystem.Models
         [DataType(DataType.CreditCard)]
         public string AccountNumber { get; set; }
         public string PIN { get; set; }
+        public string SecurityQuestion { get; set; }
     }
 }

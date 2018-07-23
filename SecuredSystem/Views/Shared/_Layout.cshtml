@@ -41,6 +41,10 @@
                     <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
                 </ul>
             }
+            else
+            {
+                @Url.Action("Login", "Account")
+            }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -57,7 +61,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/mdb")
     @RenderSection("scripts", required: false)
 </body>
 </html>

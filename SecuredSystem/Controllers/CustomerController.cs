@@ -35,8 +35,13 @@ namespace SecuredSystem.Controllers
                         break;
                     }
                 }
-                 
+
             }
+            /*else
+            {
+                return View(customers.Where( c => c.FirstName.Contains(null)));
+            }
+             */
             switch (sortOrder)
             {
                 case "first_name_desc":
@@ -49,10 +54,15 @@ namespace SecuredSystem.Controllers
                     customers = customers.OrderByDescending(c => c.Surname);
                     break;
                 default:
-                    customers = customers.OrderBy(c => c.Surname);
+                    customers = customers.OrderBy(c => c.FirstName);
                     break;
             }
-            return View(customers.ToList());
+            var cus = customers.ToList();
+            for(int i=0; i<customers.Count(); i++){
+                
+                cus[i].SecurityQuestion = AskQuestion();
+            }
+            return View(cus);
         }
 
         // GET: /Customer/Details/5
@@ -75,6 +85,31 @@ namespace SecuredSystem.Controllers
         {
             return View();
         }
+        public string posit(int num) {
+            switch (num)
+            {
+                case 1: return "st";
+                case 2: return "nd";
+                case 3: return "rd";
+                default: return "th";
+            }
+
+        }
+        public string AskQuestion()
+        {
+            int first=0, second=0, third=0;
+            Random rand = new Random();
+            first = rand.Next(1, 8);
+            while (first == second || second==0)
+            {
+                second = rand.Next(1, 8);
+            }
+            while (first == third || second == third || third == 0) { 
+                third = rand.Next(1, 8);
+            }
+            return "What is the " + first + posit(first) + ", " + second + posit(second) + " and " + third + posit(third) + " number of your security code?";
+
+        }
 
         // POST: /Customer/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -86,6 +121,8 @@ namespace SecuredSystem.Controllers
             if (ModelState.IsValid)
             {
                 customer.PIN = new Random().Next(0, 9999999).ToString("D7");
+
+                customer.SecurityQuestion = AskQuestion();
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");

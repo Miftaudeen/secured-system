@@ -1,7 +1,8 @@
 ﻿@model SecuredSystem.Models.LoginViewModel
 @if (User.Identity.IsAuthenticated == true)
 {
-    @Html.Action("Home", "Index")
+    @(User.Identity.IsAuthenticated == false)
+    @*@Html.Action("Home", "Index")*@
 }
 @{
     ViewBag.Title = "Log in";
