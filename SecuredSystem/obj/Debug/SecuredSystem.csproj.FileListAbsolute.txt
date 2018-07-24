@@ -50,10 +50,11 @@ C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\Secured
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.csprojResolveAssemblyReference.cache
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.dll
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.pdb
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.InitialCreate.resources
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.csproj.GenerateResource.Cache
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.intToString.resources
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.InitialCreate1.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.csprojResolveAssemblyReference.cache
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.first.resources

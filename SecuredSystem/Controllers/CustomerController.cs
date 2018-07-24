@@ -145,6 +145,8 @@ namespace SecuredSystem.Controllers
             }
             return View(customer);
         }
+        
+
 
         // POST: /Customer/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -155,8 +157,56 @@ namespace SecuredSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                AuditTable audit = new AuditTable();
                 
-                db.Entry(customer).State = EntityState.Modified;
+                audit.Admin = User.Identity.Name;
+                var cus = db.Customers.FirstOrDefault(c => c.CustomerId == customer.CustomerId);
+                audit.Customer = cus.FirstName + " " + cus.Surname;
+                audit.TimeStamp = DateTime.Now;
+                if (!cus.FirstName.Equals(customer.FirstName) || !cus.Surname.Equals(customer.Surname))
+                {
+                    audit.Field = "Names";
+                    audit.InitialValue = cus.FirstName + " " + cus.Surname;
+                    audit.FinalValue = customer.FirstName + " " + customer.Surname;
+                    db.AuditTables.Add(audit);
+                }
+                if (!cus.PhoneNumber.Equals(customer.PhoneNumber))
+                {
+                    audit.Field = "Phone number";
+                    audit.InitialValue = cus.PhoneNumber;
+                    audit.FinalValue = customer.PhoneNumber;
+                    db.AuditTables.Add(audit);
+                }
+                if (!cus.NextOfKin.Equals(customer.NextOfKin))
+                {
+                    audit.Field = "Next of Kin";
+                    audit.InitialValue = cus.NextOfKin;
+                    audit.FinalValue = customer.NextOfKin;
+                    db.AuditTables.Add(audit);
+                }
+                if (!cus.Occupation.Equals(customer.Occupation))
+                {
+                    audit.Field = "Occupation";
+                    audit.InitialValue = cus.Occupation;
+                    audit.FinalValue = customer.Occupation;
+                    db.AuditTables.Add(audit);
+                }
+                if (!cus.Address.Equals(customer.Address))
+                {
+                    audit.Field = "Address";
+                    audit.InitialValue = cus.Address;
+                    audit.FinalValue = customer.Address;
+                    db.AuditTables.Add(audit);
+                }
+                if (!cus.AccountNumber.Equals(customer.AccountNumber))
+                {
+                    audit.Field = "Account Number";
+                    audit.InitialValue = cus.AccountNumber;
+                    audit.FinalValue = customer.AccountNumber;
+                    db.AuditTables.Add(audit);
+                }
+                db.Entry(cus).CurrentValues.SetValues(customer);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

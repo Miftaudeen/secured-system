@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SecuredSystem.Models.AuditTable>
+
+@{
+    ViewBag.Title = "Admin Page";
+}
+
+<h2>Admin Page</h2>
+@*
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Field)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitialValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Field)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitialValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @*
+            @Html.ActionLink("Edit", "Edit", new { id=item.AuditId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AuditId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AuditId })
+            *@
+        </td>
+    </tr>
+}
+
+</table>
