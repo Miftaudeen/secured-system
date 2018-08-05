@@ -14,8 +14,21 @@
             PageMethods.AbandonSession
         }
     </script>
+    <style>
+        .yellow {
+            background-color: yellow;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
 </head>
-<body onbeforeunload="HandleClose()">
+<body class="main" >
     
        <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -39,7 +52,12 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Audit")</li>
+                    @if (User.Identity.Name == "Admin")
+                    {
+                       <li>@Html.ActionLink("Admin", "Index", "Audit")</li> 
+                       <li>@Html.ActionLink("Complaints", "Index", "Complaint")</li> 
+                    }
+                    
                 </ul>
             }
             else

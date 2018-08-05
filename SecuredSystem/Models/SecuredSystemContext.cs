@@ -22,6 +22,8 @@ namespace SecuredSystem.Models
         public System.Data.Entity.DbSet<SecuredSystem.Models.Customer> Customers { get; set; }
 
         public System.Data.Entity.DbSet<SecuredSystem.Models.AuditTable> AuditTables { get; set; }
+
+        public System.Data.Entity.DbSet<SecuredSystem.Models.Complaint> Complaints { get; set; }
     
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SecuredSystem.Models.Complaint>
+@using SecuredSystem.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Names
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.FirstName + " " + item.Customer.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td class="@(item.Flag == @Flag.Urgent ? "yellow" : item.Flag == @Flag.Normal ? "orange" : "green")">
+            @Html.DisplayFor(modelItem => item.Flag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ComplaintID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ComplaintID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ComplaintID })
+        </td>
+    </tr>
+}
+
+</table>

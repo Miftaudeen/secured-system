@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SecuredSystem.Models;
+using System.Web.Security;
 
 namespace SecuredSystem.Controllers
 {
@@ -33,6 +34,12 @@ namespace SecuredSystem.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            if (User.Identity.IsAuthenticated == true)
+            {
+
+                
+                Session.Abandon();
+            }
             return View();
         }
 

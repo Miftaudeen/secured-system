@@ -58,3 +58,8 @@ C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\Secured
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.InitialCreate1.resources
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.csprojResolveAssemblyReference.cache
 C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.first.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.complain.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.flag.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.flagclass.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.flagid.resources
+C:\Users\Miftahudeen\documents\visual studio 2013\Projects\SecuredSystem\SecuredSystem\obj\Debug\SecuredSystem.Migrations.backtoenum.resources

@@ -5,7 +5,7 @@
     ViewBag.Success = false;
 }
 
-<h2>Customers</h2>
+<h2 class="deep">Customers</h2>
 
 <p>
     @Html.ActionLink("Register New Customer", "Create")
@@ -52,7 +52,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId }) |
+                
 
             </td>
         </tr>

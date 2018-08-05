@@ -25,5 +25,7 @@ namespace SecuredSystem.Models
         public string AccountNumber { get; set; }
         public string PIN { get; set; }
         public string SecurityQuestion { get; set; }
+        public virtual ICollection<Complaint> Complaints { get; set; }
+        
     }
 }

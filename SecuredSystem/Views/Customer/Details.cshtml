@@ -1,14 +1,14 @@
 ﻿@model SecuredSystem.Models.Customer
-
+@using SecuredSystem.Models
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Model.FirstName+" "+@Model.Surname +" "+Details</h2>
 
 <div>
     <h4>Customer</h4>
-	<hr />
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Surname)
@@ -75,8 +75,35 @@
         </dd>
 
     </dl>
+    <p>
+        @Html.ActionLink("Add Complaint for " + @Model.FirstName + " " + @Model.Surname, "Create", "Complaint")
+    </p>
+    <table class="table table-bordered table-responsive table-condensed">
+        <thead>
+            <tr>
+                <td>Complain</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Complaints)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.description)
+                    </td>
+                    <td class="@(item.Flag == @Flag.Urgent ? "yellow" : item.Flag == @Flag.Normal ? "orange" : "green")">
+                        @Html.DisplayFor(model => item.Flag)
+                    </td>
+                    
+                </tr>
+                
+            }
+
+        </tbody>
+    </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    
+          @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+          @Html.ActionLink("Back to List", "Index")</p>
