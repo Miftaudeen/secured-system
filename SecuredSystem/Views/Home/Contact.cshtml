@@ -1,18 +1,20 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2 class="deep">@ViewBag.Title.</h2>
-<h3 class="deep">@ViewBag.Message</h3>
-<br />
-<br />
-<address>
-    Fountain University<br />
-    Osogbo,<br />
-    <abbr title="Phone">P:</abbr>
-    08090876543
-</address>
+﻿<div class="card">
+    @{
+        ViewBag.Title = "Contact";
+    }
+    <h2 class="deep">@ViewBag.Title.</h2>
+    <h3 class="deep">@ViewBag.Message</h3>
+    <br />
+    <br />
+    <address>
+        Fountain University<br />
+        Osogbo,<br />
+        <abbr title="Phone">P:</abbr>
+        08090876543
+    </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@callcenter.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@callcenter.com</a>
-</address>
+    <address>
+        <div class="spaced"><strong>Support:</strong>   <a href="mailto:Support@example.com">Support@callcenter.com</a><br /></div>
+        <div class="spaced"><strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@callcenter.com</a></div>
+    </address>
+</div>

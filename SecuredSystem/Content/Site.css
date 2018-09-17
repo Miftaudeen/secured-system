@@ -11,6 +11,9 @@ a{
     padding: 10px;
     margin: 10px:  
 }
+.spaced{
+    margin:10px
+}
 .bottom {
     margin-top:80px;
     margin-bottom:0;
