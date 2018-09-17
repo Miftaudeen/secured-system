@@ -30,7 +30,7 @@
 </head>
 <body class="main" >
     
-       <div class="navbar navbar-inverse navbar-fixed-top">
+       <div class="navbar navbar-fixed-top attached">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -72,8 +72,8 @@
     
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
+        <hr class="bottom"/>
+        <footer class="card fill bottom" >
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>

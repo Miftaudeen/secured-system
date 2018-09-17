@@ -67,7 +67,7 @@ namespace SecuredSystem.Controllers
                 return RedirectToAction("Details", "Customer", new { id = complaint.CustomerID });
             }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerId", "Surname", new { id = complaint.CustomerID });
+            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerId", "AccountNumber", new { id = complaint.CustomerID });
             return View(complaint);
         }
 

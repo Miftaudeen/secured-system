@@ -3,17 +3,50 @@
     padding-bottom: 20px;
     
 }
-.jumbotron{
-    background-image:url('images/bg.jpg');
-    color:#9c2283;
+a{
+    background-color: white;
+    backface-visibility: hidden;
+    elevation:higher;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px:  
+}
+.bottom {
+    margin-top:80px;
+    margin-bottom:0;
+}
+.jumbotron, .navbar{
+    margin-top: 30px;
+    background-color: white;
+    backface-visibility:hidden;
 }
 .deep{
     color: #b94a48;
 }
+.fill {
+    width:100%;
+    
+}
+.attached {
+    margin-top: 0;
+}
+.column {
+    width: 365px;
+    margin: 10px;
+}
+.card{
+    background-color: white;
+    backface-visibility: hidden;
+    elevation:higher;
+    box-shadow: rgba(0,0,0,0.6) 5px 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px:
+}
 .main{
-    background-image: url('images/Freedom-2.jpg');
+    background-image: url('images/ocean.jpg');
     background-size: cover;
-    color: white;
+
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {

@@ -13,10 +13,11 @@
 
 @using (Html.BeginForm())
 {
-    <p> Find by Name: @Html.TextBox("searchString") <input type="submit" class="btn-sm btn-primary" value="Search Customer Name" /></p>
+    <p> Find by Name: @Html.TextBox("searchString") <input type="submit" class="btn-sm btn-primary" value="Search Customer by Account Number" /></p>
 }
-
-<table class="table" >
+@{
+    if(ViewBag.query != null){
+<table class="table card fill">
     <tr>
         <th>
             @Html.ActionLink("Surname", "Index", new { sortOrder = ViewBag.SurnameSortParm })
@@ -33,8 +34,9 @@
 
         <th></th>
     </tr>
-    
-    @foreach (var item in Model) {
+
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Surname)
@@ -45,20 +47,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.SecurityQuestion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
-                
+
 
             </td>
         </tr>
     }
 
 </table>
+
+}   
+}
 
 <!-- Central Modal Medium Success-->
 <!--Success Modal-->

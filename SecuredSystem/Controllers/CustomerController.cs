@@ -23,18 +23,10 @@ namespace SecuredSystem.Controllers
                           select c;
             if (!String.IsNullOrEmpty(searchString))
             {
-                string [] names = searchString.Split(' ');
-                foreach(string name in names){
+                
                     customers = customers.Where(
-                    c => c.Surname.ToUpper().Contains(name.ToUpper()) ||
-                    c.Surname.ToUpper().Contains(name.ToUpper()) ||
-                    c.FirstName.ToUpper().Contains(name.ToUpper()) ||
-                    c.FirstName.ToUpper().Contains(name.ToUpper())
-                    );
-                    if (customers.Count() != 0){
-                        break;
-                    }
-                }
+                    c => c.AccountNumber.Contains(searchString));
+                    ViewBag.query = searchString;
 
             }
             /*else

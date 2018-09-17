@@ -4,12 +4,12 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.FirstName+" "+@Model.Surname +" "+Details</h2>
+<h2>@Model.FirstName @Model.Surname Details</h2>
 
 <div>
     <h4>Customer</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal card">
         <dt>
             @Html.DisplayNameFor(model => model.Surname)
         </dt>
@@ -78,7 +78,7 @@
     <p>
         @Html.ActionLink("Add Complaint for " + @Model.FirstName + " " + @Model.Surname, "Create", "Complaint")
     </p>
-    <table class="table table-bordered table-responsive table-condensed">
+    <table class="table table-bordered table-responsive table-condensed card fill" >
         <thead>
             <tr>
                 <td>Complain</td>
